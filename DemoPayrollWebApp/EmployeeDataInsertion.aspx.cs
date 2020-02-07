@@ -73,7 +73,7 @@ namespace DemoPayrollWebApp
         }
         protected void link_onclick(object sender,EventArgs e)
         {
-            int EmployeeId = 0;//Convert.ToInt32((sender as LinkButton).CommandArgument);
+            int EmployeeId =Convert.ToInt32((sender as LinkButton).CommandArgument);
             SqlConnection sqlConnect = new SqlConnection(sqlConnection);
             sqlConnect.Open();
             SqlDataAdapter sqlCommand = new SqlDataAdapter("ViewEmployeeeById", sqlConnect);
