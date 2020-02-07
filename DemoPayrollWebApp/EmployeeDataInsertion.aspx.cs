@@ -39,7 +39,7 @@ namespace DemoPayrollWebApp
             sqlConnect.Open();
             SqlCommand sqlCommand = new SqlCommand("Insert_Update_employee", sqlConnect);
             sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@EmployeeData", (hfEmployeedata.Value == "" ? 0 : Convert.ToInt32(hfEmployeedata.Value)));
+            sqlCommand.Parameters.AddWithValue("@EmployeeData", (hfEmployeedata.Value == "" ?0 : Convert.ToInt32(hfEmployeedata.Value)));
             sqlCommand.Parameters.AddWithValue("@Name", empName.Text);
             sqlCommand.Parameters.AddWithValue("@Desigination", empDesigination.Text);
             sqlCommand.Parameters.AddWithValue("@DepartmentId", depID.Text);
@@ -56,7 +56,7 @@ namespace DemoPayrollWebApp
             }
             else
             {
-                Response.Write("Unsuccessful");
+                Response.Write("<script LANGUAGE='JavaScript'>alert('EmployeeData successfully updated')</script>");
             }
             FillGridView();
         }
@@ -73,23 +73,23 @@ namespace DemoPayrollWebApp
         }
         protected void link_onclick(object sender,EventArgs e)
         {
-            int EmployeeId =Convert.ToInt32((sender as LinkButton).CommandArgument);
+            int EmployeeData =Convert.ToInt32((sender as LinkButton ).CommandArgument);
             SqlConnection sqlConnect = new SqlConnection(sqlConnection);
             sqlConnect.Open();
             SqlDataAdapter sqlCommand = new SqlDataAdapter("ViewEmployeeeById", sqlConnect);
             sqlCommand.SelectCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.SelectCommand.Parameters.AddWithValue("@EmployeeData",EmployeeId);
+            sqlCommand.SelectCommand.Parameters.AddWithValue("@EmployeeData",EmployeeData);
             DataTable dtbl = new DataTable();
             sqlCommand.Fill(dtbl);
-            hfEmployeedata.Value = EmployeeId.ToString();
-            empName.Text = dtbl.Rows[-1]["Name"].ToString();
-            empDesigination.Text = dtbl.Rows[-1]["Desigination"].ToString();
+            hfEmployeedata.Value = EmployeeData.ToString();
+            empName.Text = dtbl.Rows[0]["Name"].ToString();
+            empDesigination.Text = dtbl.Rows[0]["Desigination"].ToString();
             //EmployeeId.Text = dtbl.Rows[0]["EmployeeId"].ToString();
-            depID.Text = dtbl.Rows[-1]["DepartmentId"].ToString();
-            empEmail.Text = dtbl.Rows[-1]["EmailId"].ToString();
-            empDOB.Text = dtbl.Rows[-1]["DateOfBirth"].ToString();
-            empMobileNumber.Text = dtbl.Rows[-1]["MobileNumber"].ToString();
-            empSalary.Text = dtbl.Rows[-1]["Salary"].ToString();
+            depID.Text = dtbl.Rows[0]["DepartmentId"].ToString();
+            empEmail.Text = dtbl.Rows[0]["EmailId"].ToString();
+            empDOB.Text = dtbl.Rows[0]["DateOfBirth"].ToString();
+            empMobileNumber.Text = dtbl.Rows[0]["MobileNumber"].ToString();
+            empSalary.Text = dtbl.Rows[0]["Salary"].ToString();
             btnDelete.Enabled = true;
         }
 

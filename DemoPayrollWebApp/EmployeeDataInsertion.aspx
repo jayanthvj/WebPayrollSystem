@@ -79,7 +79,7 @@
                 <asp:BoundField DataField="Salary" HeaderText="SALARY" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:LinkButton ID="linkview" runat="server" CommandArgument='<%# Eval("EmployeeData") %>' OnClick="link_onclick">View</asp:LinkButton>
+                        <asp:LinkButton ID="linkview" runat="server" CommandArgument='<%# Eval("departmentId") %>' OnClick="link_onclick">View</asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
