@@ -1,0 +1,36 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPayrollPage.master.cs" Inherits="DemoPayrollWebApp.MasterPayrollPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Aspire Payroll</title>
+    <h2 align ="center"><i><b> WELCOME TO PAYROLL SYSTEM</b></i></h2>
+    <link rel="stylesheet" type="text/css" href="StyleCss.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="a">
+        <span class="b">
+            <h1>
+                <marquee>
+                Aspire Payroll System</h1>
+            </marquee>
+</span>
+    </div>
+    <form id="mainPage" runat="server">
+        <div class="Master" align="right">
+            <asp:HyperLink ID="HyperLink1" runat="server" Text="Home" NavigateUrl="~/Home.aspx"></asp:HyperLink>
+            <asp:HyperLink ID="linkSignIn" runat="server" Text="Loginin" NavigateUrl="~/LoginForm.aspx"></asp:HyperLink>
+         
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <p>
+        &nbsp;</p>
+</body>
+</html>

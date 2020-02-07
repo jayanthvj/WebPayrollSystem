@@ -1,18 +1,14 @@
 ﻿using System;
-using DemoPayrollWebApp;
 using System.Configuration;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 using System.Data.SqlClient;
 
-namespace PayrollSystem
+namespace EmployeeData
 {
-
-    public class Admin
+    public class EmployeeData
     {
         string sqlConnection = ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
-       
-        public Boolean Login(string userName, string password)
+        public void AddEmployees(string Name,string Desigination,long DepartmentId,string EmailId,DateTime DateOfBirth,)
         {
            
             SqlConnection sqlConnect = new SqlConnection(sqlConnection);
@@ -21,7 +17,7 @@ namespace PayrollSystem
             sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@UserName", userName);
             sqlCommand.Parameters.AddWithValue("@Userpassword", password);
-             SqlDataReader sqlRows = sqlCommand.ExecuteReader();
+            SqlDataReader sqlRows = sqlCommand.ExecuteReader();
 
             if (sqlRows.HasRows)
             {
@@ -30,6 +26,10 @@ namespace PayrollSystem
             else
             {
                 return false;
+            }
+
+            {
+
             }
         }
     }

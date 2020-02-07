@@ -97,13 +97,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\download.jfif" />
+    <Content Include="images\back.jpg" />
     <Content Include="download.jfif" />
-    <Content Include="EmployeeDataBase.aspx" />
+    <Content Include="EmployeeDataInsertion.aspx" />
+    <Content Include="Home.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="MasterPayrollPage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -116,18 +118,29 @@
     <Content Include="LoginForm.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="StyleCss.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminLogin.cs" />
-    <Compile Include="EmployeeDataBase.aspx.cs">
-      <DependentUpon>EmployeeDataBase.aspx</DependentUpon>
+    <Compile Include="EmployeeDataInsertion.aspx.cs">
+      <DependentUpon>EmployeeDataInsertion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EmployeeDataBase.aspx.designer.cs">
-      <DependentUpon>EmployeeDataBase.aspx</DependentUpon>
+    <Compile Include="EmployeeDataInsertion.aspx.designer.cs">
+      <DependentUpon>EmployeeDataInsertion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.aspx.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
@@ -136,10 +149,17 @@
     <Compile Include="LoginForm.aspx.designer.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MasterPayrollPage.Master.cs">
+      <DependentUpon>MasterPayrollPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPayrollPage.Master.designer.cs">
+      <DependentUpon>MasterPayrollPage.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Folder Include="Models\App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

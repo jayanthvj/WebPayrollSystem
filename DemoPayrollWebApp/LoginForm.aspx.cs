@@ -17,14 +17,11 @@ namespace DemoPayrollWebApp
         protected void Login_Click(object sender, EventArgs e)
         {
             Admin data = new Admin();
-            //string username = userName.Text;
-            //string emppassword = password.Text;
-            //string role = empRole.Text;
             bool result= data.Login(userName.Text, password.Text);
             if(result)
             {
                 Response.Write("successful");
-                //Response.Redirect("EmployeeDataBase.aspx");
+                Response.Redirect("EmployeeDataInsertion.aspx");
             }
             else
             {

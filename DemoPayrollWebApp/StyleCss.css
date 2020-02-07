@@ -1,0 +1,38 @@
+﻿body {
+     background-image:url('images/back.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size:cover;
+    font-family: sans-serif;
+}
+.a {
+    font-family: Arial, sans-serif;
+    font-size: 1;
+    font-style:italic;
+    font-weight: lighter;
+    position: center;
+}
+
+    .a .b {
+        font-family: Impact, sans-serif;
+        color: #980aa3;
+        -webkit-text-stroke: 0.01em #d6d6c2;
+        filter: progid:DXImageTransform.Microsoft.Glow(Color=#d6d6c2,Strength=1);
+        text-shadow: 0.13em -0.13em 0px #d6d6c2;
+        letter-spacing: -0.05em;
+    }
+    .Master{
+    word-spacing:15px;
+    margin-top:1px;
+}
+    .box {
+    background: #d6d6c2;
+    color: black;
+    top: 55%;
+    left: 20%;
+    position: fixed;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}

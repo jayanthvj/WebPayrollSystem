@@ -10,42 +10,51 @@
 namespace DemoPayrollWebApp {
     
     
-    public partial class LoginForm {
+    public partial class MasterPayrollPage {
         
         /// <summary>
-        /// userName control.
+        /// head control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox userName;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
-        /// regularValidateName control.
+        /// mainPage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator regularValidateName;
+        protected global::System.Web.UI.HtmlControls.HtmlForm mainPage;
         
         /// <summary>
-        /// password control.
+        /// HyperLink1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
         
         /// <summary>
-        /// Button1 control.
+        /// linkSignIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.HyperLink linkSignIn;
+        
+        /// <summary>
+        /// ContentPlaceHolder1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
     }
 }

@@ -10,16 +10,16 @@
 namespace DemoPayrollWebApp {
     
     
-    public partial class EmployeeDataBase {
+    public partial class EmployeeDataInsertion {
         
         /// <summary>
-        /// form1 control.
+        /// hfEmployeedata control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.HiddenField hfEmployeedata;
         
         /// <summary>
         /// empName control.
@@ -31,13 +31,22 @@ namespace DemoPayrollWebApp {
         protected global::System.Web.UI.WebControls.TextBox empName;
         
         /// <summary>
-        /// empID control.
+        /// validateName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox empID;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validateName;
+        
+        /// <summary>
+        /// depID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox depID;
         
         /// <summary>
         /// empDesigination control.
@@ -49,6 +58,15 @@ namespace DemoPayrollWebApp {
         protected global::System.Web.UI.WebControls.TextBox empDesigination;
         
         /// <summary>
+        /// validateDesigination control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validateDesigination;
+        
+        /// <summary>
         /// empMobileNumber control.
         /// </summary>
         /// <remarks>
@@ -58,6 +76,15 @@ namespace DemoPayrollWebApp {
         protected global::System.Web.UI.WebControls.TextBox empMobileNumber;
         
         /// <summary>
+        /// validateMobileNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validateMobileNumber;
+        
+        /// <summary>
         /// empEmail control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,15 @@ namespace DemoPayrollWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox empEmail;
+        
+        /// <summary>
+        /// validateEmailID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validateEmailID;
         
         /// <summary>
         /// empDOB control.
@@ -85,21 +121,39 @@ namespace DemoPayrollWebApp {
         protected global::System.Web.UI.WebControls.TextBox empSalary;
         
         /// <summary>
-        /// empRole control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox empRole;
+        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
-        /// Button2 control.
+        /// btnDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btnDelete;
+        
+        /// <summary>
+        /// btnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear;
+        
+        /// <summary>
+        /// GridViewEmployeeData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewEmployeeData;
     }
 }
