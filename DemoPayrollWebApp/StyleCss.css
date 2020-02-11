@@ -13,7 +13,9 @@
     font-weight: lighter;
     position: center;
 }
-
+.color{
+    color:azure;
+}
     .a .b {
         font-family: Impact, sans-serif;
         color: #980aa3;
@@ -24,7 +26,7 @@
     }
     .Master{
     word-spacing:15px;
-    margin-top:1px;
+    margin-top:-20px;
 }
     .box {
     background: #d6d6c2;

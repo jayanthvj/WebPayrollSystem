@@ -4,8 +4,8 @@
 
 <html>
 <head runat="server">
-    <title>Aspire Payroll</title>
-    <h2 align ="center"><i><b> WELCOME TO PAYROLL SYSTEM</b></i></h2>
+    <title>Aspire Payrole</title>
+    <link rel="icon" href="//knowledgebase.aspiresys.com/pluginfile.php/1/theme_adaptable/favicon/1500035794/Aspire%20logo%20Favicon.jpg" />
     <link rel="stylesheet" type="text/css" href="StyleCss.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -13,17 +13,14 @@
 <body>
     <div class="a">
         <span class="b">
-            <h1>
-                <marquee>
-                Aspire Payroll System</h1>
-            </marquee>
-</span>
+            <h1>Aspire Payrole System</h1>
+        </span>
     </div>
     <form id="mainPage" runat="server">
         <div class="Master" align="right">
-            <asp:HyperLink ID="HyperLink1" runat="server" Text="Home" NavigateUrl="~/Home.aspx"></asp:HyperLink>
-            <asp:HyperLink ID="linkSignIn" runat="server" Text="Loginin" NavigateUrl="~/LoginForm.aspx"></asp:HyperLink>
-         
+            <asp:HyperLink ID="HyperLink1" runat="server" Text="Home" NavigateUrl="~/Home.aspx" ></asp:HyperLink>
+            <asp:HyperLink ID="linkSignIn" runat="server" Text="Login" NavigateUrl="~/LoginForm.aspx"></asp:HyperLink>
+
         </div>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
@@ -31,6 +28,7 @@
         </div>
     </form>
     <p>
-        &nbsp;</p>
+        &nbsp;
+    </p>
 </body>
 </html>

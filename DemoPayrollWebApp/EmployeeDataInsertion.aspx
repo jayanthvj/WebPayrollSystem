@@ -4,9 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-        <h3 align="left"><i>EMPLOYEE MANAGEMENT </i></h3>
+        <h3 align="center"><i>EMPLOYEE MANAGEMENT </i></h3>
         <asp:HiddenField ID="hfEmployeedata" runat="server" />
-        <table runat="server">
+        <table runat="server" align="center" class="color">
             <tr>
                 <td>EmployeeName :</td>
                 <td>
@@ -79,7 +79,7 @@
                 <asp:BoundField DataField="Salary" HeaderText="SALARY" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:LinkButton ID="linkview" runat="server" CommandArgument='<%# Eval("departmentId") %>' OnClick="link_onclick">View</asp:LinkButton>
+                        <asp:LinkButton ID="linkview" runat="server" CommandArgument='<%# Eval("EmployeeId") %>' OnClick="link_onclick">View</asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

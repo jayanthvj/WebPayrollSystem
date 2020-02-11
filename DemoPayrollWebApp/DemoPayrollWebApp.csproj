@@ -124,7 +124,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminLogin.cs" />
     <Compile Include="EmployeeDataInsertion.aspx.cs">
       <DependentUpon>EmployeeDataInsertion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -160,6 +159,24 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Payrole_BL\Payrole_BL.csproj">
+      <Project>{482a5474-2d38-4b83-8d0d-042bafdccc67}</Project>
+      <Name>Payrole_BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Payrole_Common\Payrole_Common.csproj">
+      <Project>{90083c7e-a1a6-4aaa-91b5-ca7ba651625c}</Project>
+      <Name>Payrole_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Payrole_DAL\Payrole_DAL.csproj">
+      <Project>{473e7a0d-7c76-46d5-a3cd-5673c806a575}</Project>
+      <Name>Payrole_DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Payrole_Entity\Payrole_Entity.csproj">
+      <Project>{36fccbf3-f7f7-4166-8959-3fb2aae55d1a}</Project>
+      <Name>Payrole_Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,6 +1,6 @@
 ﻿using System;
-using PayrollSystem;
-using System.Data.SqlClient;
+using Payrole_Entity;
+using Payrole_BL;
 using System.Configuration;
 using System.Data;
 
@@ -16,16 +16,18 @@ namespace DemoPayrollWebApp
 
         protected void Login_Click(object sender, EventArgs e)
         {
-            Admin data = new Admin();
-            bool result= data.Login(userName.Text, password.Text);
+            string User = userName.Text;
+            string Password = password.Text;
+            AdminEntity loginData=  new AdminEntity (User,Password);
+            bool result = EmployeeBL.Login(loginData);
             if(result)
             {
-                Response.Write("successful");
+                Response.Write("<script LANGUAGE='JavaScript'>alert('Login successful')</script>");
                 Response.Redirect("EmployeeDataInsertion.aspx");
             }
             else
             {
-                Response.Write("unsuccessful");
+                Response.Write("<script LANGUAGE='JavaScript'>alert('Login unsuccessful')</script>");
             }
         }
     }

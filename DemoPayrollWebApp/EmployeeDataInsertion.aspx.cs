@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
+using Payrole_Entity;
+using Payrole_BL;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
+using Payrole_DAL;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace DemoPayrollWebApp
 {
     public partial class EmployeeDataInsertion : System.Web.UI.Page
     {
-        string sqlConnection = ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,33 +22,40 @@ namespace DemoPayrollWebApp
 
         protected void btnClear_Onclick(object sender, EventArgs e)
         {
-            Clear();
+            try
+            {
+                string EmployeeData = Convert.ToString(hfEmployeedata.Value = "");
+                string name = empName.Text = "";
+                string departmentId = depID.Text = "";
+                string Designation = empDesigination.Text = "";
+                string EmailID = empEmail.Text = "";
+                string DateOfBirth = empDOB.Text = "";
+                string Mobilenumber = empMobileNumber.Text = "";
+                string Salary = empSalary.Text = "";
+                EmployeeEntity empdata = new EmployeeEntity(name, departmentId, Designation, EmailID, DateOfBirth, Mobilenumber, Salary);
+                btnSave.Enabled = true;
+                btnDelete.Enabled = false;
+            }
+            catch(Exception )
+            {
+                Response.Write("error");
+            }
         }
-        private void Clear()
-        {
-            hfEmployeedata.Value = "";
-            empName.Text = empDesigination.Text = depID.Text = empMobileNumber.Text = empEmail.Text = empDOB.Text = empSalary.Text = "";
-            btnDelete.Enabled = false;
-        }
+
 
         protected void btnSave_Onclick(object sender, EventArgs e)
         {
-            SqlConnection sqlConnect = new SqlConnection(sqlConnection);
-            sqlConnect.Open();
-            SqlCommand sqlCommand = new SqlCommand("Insert_Update_employee", sqlConnect);
-            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@EmployeeData", (hfEmployeedata.Value == "" ?0 : Convert.ToInt32(hfEmployeedata.Value)));
-            sqlCommand.Parameters.AddWithValue("@Name", empName.Text);
-            sqlCommand.Parameters.AddWithValue("@Desigination", empDesigination.Text);
-            sqlCommand.Parameters.AddWithValue("@DepartmentId", depID.Text);
-            sqlCommand.Parameters.AddWithValue("@Email", empEmail.Text);
-            sqlCommand.Parameters.AddWithValue("@DOB", empDOB.Text);
-            sqlCommand.Parameters.AddWithValue("@MobileNumber", empMobileNumber.Text);
-            sqlCommand.Parameters.AddWithValue("@Salary", empSalary.Text);
-            sqlCommand.ExecuteNonQuery();
-            string EmployeeData = hfEmployeedata.Value;
-            Clear();
-            if (EmployeeData == "")
+            string EmployeeData = Convert.ToString(hfEmployeedata.Value == "" ? 0 : Convert.ToInt32(hfEmployeedata.Value));
+            string name = empName.Text;
+            string departmentId = depID.Text;
+            string Designation = empDesigination.Text;
+            string EmailID = empEmail.Text;
+            string DateOfBirth = empDOB.Text;
+            string Mobilenumber = empMobileNumber.Text;
+            string Salary = empSalary.Text;
+            EmployeeEntity empdata = new EmployeeEntity(name, departmentId, Designation, EmailID, DateOfBirth, Mobilenumber, Salary);
+            bool result = EmployeeBL.AddandupdateEmployee(empdata, EmployeeData);
+            if (result)
             {
                 Response.Write("<script LANGUAGE='JavaScript'>alert('EmployeeData successfully added')</script>");
             }
@@ -59,32 +64,21 @@ namespace DemoPayrollWebApp
                 Response.Write("<script LANGUAGE='JavaScript'>alert('EmployeeData successfully updated')</script>");
             }
             FillGridView();
+
         }
         private void FillGridView()
         {
-            SqlConnection sqlConnect = new SqlConnection(sqlConnection);
-            sqlConnect.Open();
-            SqlDataAdapter sqlCommand = new SqlDataAdapter("ViewEmployeeData", sqlConnect);
-            sqlCommand.SelectCommand.CommandType = CommandType.StoredProcedure;
-            DataTable dtbl = new DataTable();
-            sqlCommand.Fill(dtbl);
-            GridViewEmployeeData.DataSource = dtbl;
+            DataTable datatable = EmployeeBL.EmployeeGridView();
+            GridViewEmployeeData.DataSource = datatable;
             GridViewEmployeeData.DataBind();
         }
-        protected void link_onclick(object sender,EventArgs e)
+        protected void link_onclick(object sender, EventArgs e)
         {
-            int EmployeeData =Convert.ToInt32((sender as LinkButton ).CommandArgument);
-            SqlConnection sqlConnect = new SqlConnection(sqlConnection);
-            sqlConnect.Open();
-            SqlDataAdapter sqlCommand = new SqlDataAdapter("ViewEmployeeeById", sqlConnect);
-            sqlCommand.SelectCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.SelectCommand.Parameters.AddWithValue("@EmployeeData",EmployeeData);
-            DataTable dtbl = new DataTable();
-            sqlCommand.Fill(dtbl);
+            int EmployeeData = Convert.ToInt32((sender as LinkButton).CommandArgument);
+            DataTable dtbl = EmployeeBL.view(EmployeeData);
             hfEmployeedata.Value = EmployeeData.ToString();
             empName.Text = dtbl.Rows[0]["Name"].ToString();
             empDesigination.Text = dtbl.Rows[0]["Desigination"].ToString();
-            //EmployeeId.Text = dtbl.Rows[0]["EmployeeId"].ToString();
             depID.Text = dtbl.Rows[0]["DepartmentId"].ToString();
             empEmail.Text = dtbl.Rows[0]["EmailId"].ToString();
             empDOB.Text = dtbl.Rows[0]["DateOfBirth"].ToString();
@@ -95,7 +89,11 @@ namespace DemoPayrollWebApp
 
         protected void btnDelete_Onclick(object sender, EventArgs e)
         {
-
+            int empId = Convert.ToInt32(hfEmployeedata.Value);
+            EmployeeBL.DeleteEmployee(empId);
+            FillGridView();
+            Response.Write("DeletedSuccessfully");
+            btnSave.Enabled = false;
         }
     }
 }
