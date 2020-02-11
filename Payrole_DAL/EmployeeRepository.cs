@@ -55,7 +55,7 @@ namespace Payrole_DAL
             SqlDataAdapter sqlCommand = new SqlDataAdapter("ViewEmployeeeById", sqlconnect);
             sqlCommand.SelectCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.SelectCommand.Parameters.AddWithValue("@EmployeeData", EmployeeData);
-            DataTable dtbl = new DataTable();
+            DataTable dtbl = new  DataTable();
             sqlCommand.Fill(dtbl);
             return dtbl;
         }
